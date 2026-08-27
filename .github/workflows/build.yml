@@ -24,7 +24,7 @@ jobs:
           channel: 'stable'
 
       - name: Generate Android Project Files
-        run: flutter create --platforms=android .
+        run: flutter create --project-name fayyad_glass --platforms=android .
 
       - name: Create local.properties
         run: echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
