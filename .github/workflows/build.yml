@@ -29,6 +29,9 @@ jobs:
       - name: Restore Google Services
         run: git checkout android/app/google-services.json || true
 
+      - name: Create local.properties
+        run: echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+
       - name: Update minSdkVersion to 21
         run: |
           sed -i 's/minSdkVersion.*/minSdkVersion 21/g' android/app/build.gradle
