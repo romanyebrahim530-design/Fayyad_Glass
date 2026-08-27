@@ -27,7 +27,7 @@ jobs:
         run: flutter pub get
 
       - name: Generate Android Project Files
-        run: flutter create . --platforms=android
+        run: flutter create --project-name fayyad_glass . --platforms=android
 
       - name: Build APK Release
         run: flutter build apk --release
