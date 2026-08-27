@@ -23,8 +23,14 @@ jobs:
           flutter-version: '3.19.0'
           channel: 'stable'
 
+      - name: Generate Android Project Files
+        run: flutter create --platforms=android .
+
       - name: Create local.properties
         run: echo "flutter.sdk=$FLUTTER_ROOT" > android/local.properties
+
+      - name: Restore Google Services
+        run: git checkout android/app/google-services.json || true
 
       - name: Update minSdkVersion to 21
         run: |
