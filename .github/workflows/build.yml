@@ -26,8 +26,11 @@ jobs:
       - name: Generate Android Files
         run: flutter create --project-name fayyad_glass --platforms=android .
 
-      - name: Create local.properties in Root
-        run: echo "flutter.sdk=$FLUTTER_ROOT" > local.properties
+      - name: Set up local.properties correctly
+        run: |
+          FLUTTER_SDK_PATH=$(dirname $(dirname $(which flutter)))
+          echo "flutter.sdk=$FLUTTER_SDK_PATH" > local.properties
+          echo "flutter.sdk=$FLUTTER_SDK_PATH" > android/local.properties
 
       - name: Restore Google Services
         run: git checkout android/app/google-services.json || true
